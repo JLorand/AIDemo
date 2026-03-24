@@ -1,0 +1,10 @@
+@ApiService_HostAddress = http://localhost:5358
+
+POST {{ApiService_HostAddress}}/weather/chat
+Content-Type: application/json
+Accept: text/event-stream
+
+{
+    "prompt": "What is the weather in Vienna?"
+}
+###
