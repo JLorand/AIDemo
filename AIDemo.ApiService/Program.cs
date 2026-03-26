@@ -2,6 +2,8 @@
 using Scalar.AspNetCore;
 using AIDemo.ApiService.Features.Weather.Endpoints;
 using AIDemo.ApiService.Features.Weather.Infrastructure;
+using AIDemo.ApiService.Features.Vision.Endpoints;
+using AIDemo.ApiService.Features.Vision.Infrastructure;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -16,6 +18,7 @@ builder.Services.AddProblemDetails();
 builder.Services.AddOpenApi();
 
 builder.Services.AddWeatherFeature(builder.Configuration);
+builder.Services.AddVisionFeature(builder.Configuration);
 
 var app = builder.Build();
 
@@ -31,6 +34,7 @@ if (app.Environment.IsDevelopment())
 app.MapGet("/", () => "API service is running.");
 
 app.MapWeatherEndpoints();
+app.MapVisionEndpoints();
 
 app.MapDefaultEndpoints();
 
